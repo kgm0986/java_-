@@ -1,31 +1,108 @@
 package week05;
 
+import java.lang.reflect.Array;
 import java.util.*;
 import java.util.stream.Stream;
 
 public class test {
     public static void main(String[] args){
-        System.out.println(Solution.solution(3,5));
+        for(int i=0; i<10; i++){
+
+        }
+
     }
 }
 
 class Solution {
-    public static long solution(int a, int b) {
-        long answer = 0;
-        if (a<=b){
-            for(int i=a; i<= b;i++){
-                answer+=i;
-                System.out.println(answer);
-            }
-        }else{
-            for(int i=b; i<= a;i++){
-                answer+=i;
+    public int solution(int[] nums) {
+        int answer = 0;
+        boolean boo =true;
+        for(int i=0; i<nums.length; i++){
+            for(int j=i+1; j<nums.length; j++){
+                for (int k=j+1; k<nums.length; k++){
+                    for (int l=2; l<(nums[i]+nums[j]+nums[k]);l++){
+                        if((nums[i]+nums[j]+nums[k])%l==0){
+                            boo=false;
+                            break;
+                        }
+
+                    }
+                    if(boo){
+                        answer++;
+                    }else{
+                        boo=true;
+                    }
+                }
             }
         }
+
+        ;
 
         return answer;
     }
 }
+
+
+//class Solution {
+//    public String[] solution(int n, int[] arr1, int[] arr2) {
+//        String[] answer = new String[n];
+//        String str;
+//        for(int i = 0 ; i < n ; i++){
+//            str = String.format("%16s", Integer.toBinaryString(arr1[i] | arr2[i]));
+//            str = str.substring(16 - n);
+//            str = str.replaceAll("1", "#");
+//            str = str.replaceAll("0", " ");
+//            answer[i] = str;
+//        }
+//
+//        return answer;
+//    }
+//}
+
+//class Solution {
+//    public static int solution(int[][] board, int[] moves) {
+//        Stack<Integer> stack = new Stack<Integer>();
+//        int answer = 0;
+//        for(int i=0; i<moves.length; i++){
+//            int k = moves[i];
+//            for(int j = 0; j<board.length; j++){
+//                if(board[j][k-1]!=0){
+//                    if(stack.isEmpty()){
+//                        stack.push(board[j][k-1]);
+//                    }else{
+//                        if(stack.peek()==board[j][k-1]){
+//                            answer+=2;
+//                            stack.pop();
+//                        }else{
+//                            stack.push(board[j][k-1]);
+//                        }
+//                    }
+//                     board[j][k-1] =0;
+//                     break;
+//                }
+//            }
+//        }
+//        return answer;
+//    }
+//}
+
+//class Solution {
+//    public static long solution(int a, int b) {
+//        long answer = 0;
+//        if (a<=b){
+//            for(int i=a; i<= b;i++){
+//                answer+=i;
+//                System.out.println(answer);
+//            }
+//        }else{
+//            for(int i=b; i<= a;i++){
+//                answer+=i;
+//            }
+//        }
+//
+//        return answer;
+//    }
+//}
 
 //class Solution {
 //    public int[] solution(int[] arr, int divisor) {
