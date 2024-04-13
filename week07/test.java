@@ -4,30 +4,153 @@ import com.sun.source.tree.ArrayAccessTree;
 
 import java.sql.Array;
 import java.util.*;
+import java.util.stream.Collectors;
 
 import static java.lang.Math.*;
 
 public class test {
     public static void main(String[] args) {
-        System.out.println(Solution.solution(new int[]{7,9,1,1,4}));
+        System.out.println(Solution.solution(new int[]{5,1,3,7}, new int[]{2,2,6,8}));
 
 
     }
 }
 
-class Solution {
-    public int[] solution(int n, long left, long right) {
-        int[] answer = {};
-        int[][] arr = new int[n][n];
-        for (int i = 0; i < n; i++) {
-            for(int j=0; j < n; j++) {
-                if(i)
-            }
-        }
+//class Solution {
+//    public static int solution(int[] A, int[] B) {
+//        int answer = 0;
+//
+//        Arrays.sort(A);
+//        Arrays.sort(B);
+//        int j=0;
+//        int i=0;
+//        while (true){
+//            if(j<B.length) {
+//                if (A[i] < B[j]) {
+//                    if (j<B.length) {
+//                        i++;
+//                        j++;
+//                        answer++;
+//                    } else {
+//                        break;
+//                    }
+//
+//                } else {
+//                    if (j < B.length) {
+//                        j++;
+//                    } else {
+//                        break;
+//                    }
+//                }
+//            }else {
+//                break;
+//            }
+//        }
+//        return answer;
+//    }
+//}
+//class Solution {
+//    public int solution(String[] board) {
+//        int answer = 0;
+//
+//        return answer;
+//    }
+//
+//    private int nave(){
+//
+//    }
+//    private int[] left(int[] bod,int[] xy){
+//
+//    }
+//    private int[] rigth(int[] bod,int[] xy) {
+//    }
+//    private int[] up(int[] bod,int[] xy){
+//
+//    }
+//    private int[] down(int[] bod,int[] xy){
+//
+//    }
+//
+//}
+//class Solution {
+//    public long solution(int n, int[] works) {
+//        long answer = 0;
+//        Arrays.sort(works);
+//        int i= works.length-1;
+//        while(n>0) {
+//            if(i>0) {
+//                if (works[i] > works[i - 1]) {
+//                    works[i] = works[i] - 1;
+//                    n--;
+//                }else{
+//                    i--;
+//                }
+//            }else{
+//                works[i] =works[i]-1;
+//                n--;
+//
+//            }
+//
+//
+//        }
+//        for(int j=0;j<works.length;j++) {
+//            answer += works[j] * works[j];
+//        }
+//        for(int j=0;j<works.length;j++) {
+//            System.out.println(works[j]);
+//        }
+//
+//        return answer;
+//    }
+//}
 
-        return answer;
-    }
-}
+//class Solution {
+//    public int solution(int k, int m, int[] sc) {
+//        int answer = 0;
+//
+//        Integer[] score = new Integer[sc.length];
+//        for(int i = 0; i <score.length;i++) {
+//            score[i] = sc[i];
+//        }
+//        Arrays.sort(score,Collections.reverseOrder());
+//
+//        for(int i=0; i<(score.length/m);i++){
+//            int max =k;
+//            if(i==0){
+//                for(int j=0;j<m;j++){
+//                    if(max>score[j]){
+//                        max=score[j];
+//                    }
+//                }
+//            }else{
+//                for(int j=i*m;j<(i+1)*m;j++){
+//                    if(max>score[j]){
+//                        max=score[j];
+//                    }
+//                }
+//            }
+//            System.out.print(max);
+//            answer+=max*m;
+//
+//        }
+//        return answer;
+//    }
+//
+//}
+
+//class Solution {
+//    public int[] solution(int n, long left, long right) {
+//        int[] answer = {};
+//        int[][] arr = new int[n][n];
+//        for (int i = 0; i < n; i++) {
+//            for(int j=0; j < n; j++) {
+//                if(i)
+//            }
+//        }
+//
+//        return answer;
+//    }
+
 //class Solution {
 //    public static int solution(int[] elements) {
 //        int answer = 0;
