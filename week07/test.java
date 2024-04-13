@@ -5,42 +5,444 @@ import com.sun.source.tree.ArrayAccessTree;
 import java.sql.Array;
 import java.util.*;
 
-import static java.lang.Math.abs;
-import static java.lang.Math.scalb;
+import static java.lang.Math.*;
 
 public class test {
     public static void main(String[] args) {
-        int[][] s = {{1,2,3,5},{5,6,7,8},{4,3,2,1}};
-        System.out.println(Solution.solution(15));
+        System.out.println(Solution.solution(new int[]{7,9,1,1,4}));
 
 
     }
 }
 
-
 class Solution {
-    public int solution(int n) {
-        int answer = 0;
-        for(int i=1; i<=n;i++){
-            int sum=0;
-            for(int j=i; j<=n;j++){
-                sum+=j;
-                if(sum==n){
-                    answer++;
-
-                }else if(sum>n){
-                    break;
-                }
-
-
-
-
+    public int[] solution(int n, long left, long right) {
+        int[] answer = {};
+        int[][] arr = new int[n][n];
+        for (int i = 0; i < n; i++) {
+            for(int j=0; j < n; j++) {
+                if(i)
             }
-
         }
+
         return answer;
     }
 }
+//class Solution {
+//    public static int solution(int[] elements) {
+//        int answer = 0;
+//        Set<Integer> answerSet = new HashSet<Integer>();
+//        for (int i = 1; i <=elements.length; i++) {
+//            for (int j = 0; j <=elements.length;j++){
+//                int sum=0;
+//                for (int k=j; k <j+i;k++){
+//                    sum+=elements[k%elements.length];
+//                    System.out.println(k+"증가");
+//                }
+//                answerSet.add(sum);
+//                System.out.println(sum+"합계");
+//            }
+//
+//        }
+//        answer=answerSet.size();
+//        return answer;
+//    }
+//}
+//class Solution {
+//    public static int[] solution(int[] sequence, int k) {
+//        int[] answer = new int[2];
+//        answer[1]=(sequence.length);
+//        answer[0]=0;
+//        for(int i =0;i<sequence.length;i++){
+//            int sum=0;
+//            for(int j =i;j<sequence.length;j++){
+//                sum+=sequence[j];
+//                System.out.println(sum);
+//                if(sum==k){
+//                    if((j-i)<answer[1]-answer[0]){
+//                        answer[0]=i;
+//                        answer[1]=j;
+//                    }
+//
+//                }
+//                if(sum>k){
+//                    break;
+//
+//                }
+//            }
+//        }
+//        return answer;
+//    }
+//}
+//class Solution {
+//    public int[] solution(String[] maps) {
+//        int[] answer = {};
+//        for (int i = 0; i < maps.length; i++) {
+//            for (int j = 0; j < maps.length;j++){
+//
+//            }
+//        }
+//        return answer;
+//    }
+//}
+//class Solution {
+//    public int[] solution(int[] numbers) {
+//        int[] answer = new int[numbers.length];
+//        int d=0;
+//        Stack<Integer> stack = new Stack<Integer>();
+//        stack.push(0);
+//        for(int i = 0; i < numbers.length; i++){
+//            stack.add(numbers[i]);
+//        }
+//        for(int i = numbers.length-1; i >=0; i--){
+//            if(stack.peek()<numbers[i]){
+//                answer[d]=numbers[i];
+//                d++;
+//                stack.pop();
+//            }else{
+//
+//            }
+//        }
+//        return answer;
+//    }
+//}
+//class Solution {
+//    public static int[] solution(int[] numbers) {
+//
+//        int[] answer = new int[numbers.length];
+//        int[] so =numbers;
+//        Arrays.sort(numbers);
+//        int d=0;
+//        for(int i =0; i < so.length; i++) {
+//            boolean asd =true;
+//            for(int j = i; j < so.length; j++){
+//                if(so[i]<so[j]){
+//                    answer[d]=so[j];
+//                    d++;
+//                    asd=false;
+//                    break;
+//                }
+//            }
+//            if(asd){
+//                answer[d]=-1;
+//                d++;
+//            }
+//        }
+//
+//
+//        return answer;
+//    }
+//}
+//class Solution {
+//    public boolean solution(String[] phone_book) {
+//        boolean answer = true;
+//        Arrays.sort(phone_book);
+//        for(int i=0; i<phone_book.length-1; i++) {
+//            if (phone_book[i+1].startsWith(phone_book[i])) {
+//                                answer = false;
+//            }
+//        }
+//        return answer;
+//    }
+//}
+
+
+//class Solution {
+//    public boolean solution(String[] phone_book) {
+//        boolean answer = true;
+//        for(int i=0; i<phone_book.length;i++){
+//            for(int j=0; j<phone_book.length;j++){
+//                if(answer){
+//                    if(i!=j){
+//                        if(phone_book[i].length()<phone_book[j].length()) {
+//                            if (phone_book[j].startsWith(phone_book[i])) {
+//                                answer = false;
+//                            }
+//                        }
+//                    }
+//                }
+//
+//            }
+//        }
+//        return answer;
+//    }
+//}
+
+//class Solution {
+//
+//    int answer = 0;
+//
+//    public int solution(int n) {
+//        int[][] num = new int[n][n];
+//        rep(num, 0, n);
+//        return answer;
+//    }
+//    //row 사용한 퀸의 갯수
+//
+//    private void rep(int[][] num, int row, int n) {
+//        if (row == n) {
+//            answer++;
+//            return;
+//        }
+//
+//        for (int i = 0; i < n; i++) {
+//            if (Safe(num, row, i, n)) {
+//                num[row][i] = 1;
+//                rep(num, row + 1, n);
+//                num[row][i] = 0;
+//            }
+//        }
+//    }
+//
+//    private boolean Safe(int[][] num, int row, int col, int n) {
+//
+//        for (int i = 0; i < row; i++) {
+//            if (num[i][col] == 1) {
+//                return false;
+//            }
+//        }
+//
+//        for (int i = row, j = col; i >= 0 && j >= 0; i--, j--) {
+//            if (num[i][j] == 1) {
+//                return false;
+//            }
+//        }
+//
+//        for (int i = row, j = col; i >= 0 && j < n; i--, j++) {
+//            if (num[i][j] == 1) {
+//                return false;
+//            }
+//        }
+//
+//        return true;
+//    }
+//}
+
+//class Solution
+//{
+//    public static int solution(String s) {
+//        int answer = -1;
+//        Queue<String> queue = new LinkedList<>();
+//        String[] words = s.split("");
+//        for (int i = 0; i < words.length; i++) {
+//            queue.add(words[i]);
+//
+//        }
+//        boolean asd =true;
+//
+//        while (asd){
+//            for (int i = 1; i < queue.size(); i++) {
+//                String q =queue.poll();
+//                asd=false;
+//                if (queue.poll().equals(queue.peek())) {
+//                    queue.poll();
+//                    asd=true;
+//                    i++;
+//                } else {
+//                    queue.add(q);
+//                }
+//            }
+//        }
+//
+//
+//        return queue.size()==0 ? 1 : 0;
+//    }
+//}
+//class Solution {
+//    public int solution(int[] priorities, int location) {
+//        int answer = 0;
+//        Queue<Integer> queue = new LinkedList<>();
+//        for(int i=0;i<priorities.length;i++ ){
+//            queue.add(priorities[i]);
+//        }
+//
+//        for(int i=0; i<queue.size();i++){
+//            int max = queue.poll();
+//            boolean aks =false;
+//            for(int j=0; j<priorities.length;j++) {
+//                if (max <= priorities[i]) {
+//                    aks =true;
+//
+//                }
+//
+//            }
+//            if(aks){
+//                queue.add(max);
+//            }else{
+//                if(max==)
+//            }
+//        }
+//
+//        return answer;
+//    }
+//}
+//
+//import java.util.*;
+//
+//public class Solution {
+//    public int solution(int n) {
+//        int ans =0 ;
+//        while(n!=0){
+//            if(n%2!=0){
+//                ans+=1;
+//                n=(n/2);
+//            }else{
+//                n=n/2;
+//            }
+//        }
+//
+//        return ans;
+//    }
+//}
+//class Solution {
+//    public int solution(int[] arr) {
+//        int answer = 0;
+//        for(int i=0; i<arr.length-1;i++){
+//            gcd(arr[i],arr[i+1]);
+//        }
+//        return answer;
+//    }
+//    private int gcd(int a, int b){
+//        int r= a%b;
+//        if(r==0) return b;
+//        else return gcd(b,r);
+//    }
+//}
+//class Solution {
+//    int max =0;
+//    public int solution(int[][] triangle) {
+//        sol(triangle,1,0,triangle[0][0]);
+//        int answer = max;
+//        return answer;
+//    }
+//    public void sol(int[][] triangle,int a,int b,int h) {
+//        if(a>=triangle.length){
+//            if(max<h){
+//                max=h;
+//            }
+//        }else{
+//            for(int j=b; j<=b+1;j++){
+//                sol(triangle,a+1,j,h+triangle[a][j]);
+//            }
+//
+//        }
+//
+//    }
+//}
+//class Solution {
+//    public int solution(int[][] triangle) {
+//        int n = triangle.length;
+//
+//
+//        int[][] dp = new int[n][n];
+//        dp[0][0] = triangle[0][0];
+//
+//
+//        for (int i = 1; i < n; i++) {
+//            for (int j = 0; j <= i; j++) {
+//
+//                if (j == 0) {
+//                    dp[i][j] = dp[i - 1][j] + triangle[i][j];
+//                }
+//
+//                else if (j == i) {
+//                    dp[i][j] = dp[i - 1][j - 1] + triangle[i][j];
+//                }
+//
+//                else {
+//                    dp[i][j] = Math.max(dp[i - 1][j - 1], dp[i - 1][j]) + triangle[i][j];
+//                }
+//            }
+//        }
+//
+//
+//        int maxSum = 0;
+//        for (int num : dp[n - 1]) {
+//            maxSum = Math.max(maxSum, num);
+//        }
+//
+//        return maxSum;
+//    }
+//}
+//class Solution {
+//    public String solution(String s) {
+//        String answer = "";
+//        String[] k = s.split(" ");
+//        int max=Integer.parseInt(k[0]);
+//        int min=Integer.parseInt(k[0]);
+//        for(int i=0; i<k.length;i++){
+//            if(Integer.parseInt(k[i])>max){
+//                max=Integer.parseInt(k[i]);
+//            }
+//            if(Integer.parseInt(k[i])<min){
+//                min=Integer.parseInt(k[i]);
+//            }
+//        }
+//        answer = (min + " " + max);
+//        return answer;
+//    }
+//}
+//class Solution {
+//    public String solution(String s) {
+//        s=s.toLowerCase();
+//
+//
+//        String[] a = s.split("");
+//        for(int i=0; i<a.length-1;i++){
+//            if(a[i].equals(" ")){
+//                if(a[i+1].equals(" ")){
+//
+//                }else {
+//                    a[i+1]=a[i+1].toUpperCase();
+//                }
+//            }
+//        }
+//        a[0]=a[0].toUpperCase();
+//        String answer = String.join("",a);
+//        return answer;
+//    }
+//}
+
+//class Solution
+//{
+//    public int solution(int []A, int []B)
+//    {
+//        int answer = 0;
+//        Arrays.sort(A);
+//        Arrays.sort(B);
+//        for(int i = 0; i < A.length; i++){
+//            answer += A[i] * B[B.length-i-1];
+//        }
+//
+//
+//
+//        return answer;
+//    }
+//}
+//
+//class Solution {
+//    public int solution(int n) {
+//        int answer = 0;
+//        for(int i=1; i<=n;i++){
+//            int sum=0;
+//            for(int j=i; j<=n;j++){
+//                sum+=j;
+//                if(sum==n){
+//                    answer++;
+//
+//                }else if(sum>n){
+//                    break;
+//                }
+//
+//
+//
+//
+//            }
+//
+//        }
+//        return answer;
+//    }
+//}
 
 //class  Solution {
 //   static int  solution(int[][] land) {
