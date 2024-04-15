@@ -10,11 +10,164 @@ import static java.lang.Math.*;
 
 public class test {
     public static void main(String[] args) {
-        System.out.println(Solution.solution(new int[]{5,1,3,7}, new int[]{2,2,6,8}));
-
+       // System.out.println(Solution.solution("hit","cog",new String[] {"hot", "dot", "dog", "lot", "log", "cog"}));
+        Solution solution = new Solution();
+        //System.out.println(solution.solution("hit","cog",new String[] {"hot", "dot", "dog", "lot", "log", "cog"}));
+        List<in>
 
     }
 }
+class Solution {
+    int answer =52;
+
+    public int  solution(String begin, String target, String[] wor) {
+        List<String> words = new ArrayList<>(Arrays.asList(wor));
+        rere(begin, target, words,0,0);
+        if(answer==2){
+            return 0;
+        }
+        return answer;
+    }
+    private boolean qwe(String str1, String str2){
+        String[] words1 = str1.split("");
+        String[] words2 = str2.split("");
+        int count =0;
+        for (int i = 0; i<words2.length;i++){
+            if(words1[i].equals(words2[i])){
+
+            }else{
+                count++;
+            }
+        }
+        if(count>1){
+            return false;
+        }else {
+            return true;
+        }
+    }
+    private int rere(String begin, String target, List words, int count,int num) {
+        for (int i = num; i < words.size();i++){
+            if(begin.equals(target)){
+                if(answer>count){
+                    System.out.println(count);
+                    answer=count;
+                    break;
+                }
+                    break;
+            }
+            if(qwe(begin, (String) words.get(i))&&words.size()!=0){
+                rere(begin,target,words,count,i+1);
+                System.out.println(words.size());
+                System.out.println(words.get(i)+"1번");
+                begin= (String) words.get(i);
+                words.remove(i);
+
+                count++;
+                rere(begin,target,words,count,0);
+            }
+        }
+        return answer;
+    }
+}
+//class Solution {
+//    public int[] solution(String[] operations) {
+//        PriorityQueue<Integer> min = new PriorityQueue<>();
+//        PriorityQueue<Integer> max = new PriorityQueue<>(Collections.reverseOrder());
+//        StringTokenizer st;
+//
+//        for(int i=0;i<operations.length;i++) {
+//            st = new StringTokenizer(operations[i]);
+//            char op = st.nextToken().charAt(0);
+//            int num = Integer.parseInt(st.nextToken());
+//
+//            switch(op) {
+//                case 'I':
+//                    min.add(num);
+//                    max.add(num);
+//                    break;
+//                case 'D':
+//                    if(max.isEmpty()) break;
+//                    if(num == 1) {
+//                        int del = max.poll();
+//                        min.remove(del);
+//                    }
+//                    if(num == -1) {
+//                        int del = min.poll();
+//                        max.remove(del);
+//                    }
+//            }
+//        }
+//
+//        if(max.isEmpty())
+//            return new int[] {0, 0};
+//
+//        return new int[] {max.peek(), min.peek()};
+//    }
+//}
+
+//class Solution {
+//    public static int solution(int n, int[] stations, int w) {
+//        int answer = 0;
+//        int i=0;
+//        int d=0;
+//        while (d<=n){
+//            if(stations[i]-w<=d&&d<=stations[i]+w){
+//                d=stations[i]+w+1;
+//                if(stations.length>i+1){
+//                    i++;
+//                }else{
+//                    stations[i]=2000000000;
+//                }
+//            }else{
+//                answer++;
+//                d+=w*2+1;
+//            }
+//
+//        }
+//        return answer;
+//    }
+//}
+
+//class Solution {
+//    public static int solution(int n, int[] stations, int w) {
+//        int answer = 0;
+//        int num1 = (w*2)+1;
+//        List<Integer> list= new ArrayList<Integer>();
+//        int i=0;
+//        int q =1;
+//        int leng=1;
+//        while (q<=n){
+//            if(stations[i]==1){
+//                q=stations[i]+w+1;
+//                if(stations.length>i+1){
+//                    i++;
+//                }else {
+//                    stations[i]=n+1+w;
+//                }
+//            }
+//            list.add(stations[i]-w-q);
+//            System.out.println(stations[i]-w-q);
+//            q=stations[i]+w+1;
+//            if(stations.length>i+1){
+//                i++;
+//            }else {
+//                stations[i]=n+1+w;
+//            }
+//
+//        }
+//        for (int k=0; k<list.size(); k++){
+//            if(list.get(k)%num1!=0){
+//                answer+=(list.get(k)/num1)+1;
+//            }else{
+//                answer+=(list.get(k)/num1);
+//            }
+//        }
+//
+//
+//
+//        return answer;
+//    }
+//}
 
 //class Solution {
 //    public static int solution(int[] A, int[] B) {
