@@ -1,6 +1,7 @@
 package week07;
 
 import com.sun.source.tree.ArrayAccessTree;
+import com.sun.source.tree.WhileLoopTree;
 
 import java.sql.Array;
 import java.util.*;
@@ -12,63 +13,195 @@ public class test {
     public static void main(String[] args) {
        // System.out.println(Solution.solution("hit","cog",new String[] {"hot", "dot", "dog", "lot", "log", "cog"}));
         Solution solution = new Solution();
-        //System.out.println(solution.solution("hit","cog",new String[] {"hot", "dot", "dog", "lot", "log", "cog"}));
-        List<in>
+        System.out.println(solution.solution(new String[] {"Enter uid1234 Muzi", "Enter uid4567 Prodo","Leave uid1234","Enter uid1234 Prodo","Change uid4567 Ryan"}));
+
 
     }
 }
 class Solution {
-    int answer =52;
+    public String[] solution(String[] record) {
 
-    public int  solution(String begin, String target, String[] wor) {
-        List<String> words = new ArrayList<>(Arrays.asList(wor));
-        rere(begin, target, words,0,0);
-        if(answer==2){
-            return 0;
+        String str[][] = new String[record.length][3];
+        for(int i = 0; i < record.length;i++){
+            str[i] = record[i].split(" ");
         }
-        return answer;
-    }
-    private boolean qwe(String str1, String str2){
-        String[] words1 = str1.split("");
-        String[] words2 = str2.split("");
-        int count =0;
-        for (int i = 0; i<words2.length;i++){
-            if(words1[i].equals(words2[i])){
-
-            }else{
-                count++;
-            }
+        String[] answer =new String[record.length];
+//떠나는건 값이 2개다
+        Map<String, String> map = new HashMap<String, String>();
+        for (int i = 0;i<record.length;i++){
+            System.out.println(str[i][1]);
+            System.out.println(str[i][2]);
+            map.put(str[i][1],str[i][2]);
         }
-        if(count>1){
-            return false;
-        }else {
-            return true;
-        }
-    }
-    private int rere(String begin, String target, List words, int count,int num) {
-        for (int i = num; i < words.size();i++){
-            if(begin.equals(target)){
-                if(answer>count){
-                    System.out.println(count);
-                    answer=count;
+        for (int i = 0;i<record.length;i++){
+            switch (str[i][0]){
+                case "Enter" :
+                    answer[i]=(map.get(str[i][1])+"님이 들어왔습니다.");
+                    System.out.println(answer[i]);
                     break;
-                }
+                case "Leave" :
+                    answer[i]=(map.get(str[i][1])+"님이 나갔습니다.");
+                    System.out.println(answer[i]);
                     break;
-            }
-            if(qwe(begin, (String) words.get(i))&&words.size()!=0){
-                rere(begin,target,words,count,i+1);
-                System.out.println(words.size());
-                System.out.println(words.get(i)+"1번");
-                begin= (String) words.get(i);
-                words.remove(i);
 
-                count++;
-                rere(begin,target,words,count,0);
             }
         }
         return answer;
     }
 }
+
+//class Solution {
+//    public int[] solution(String[] gems) {
+//        int[] answer = new int[2];
+//
+//        int max=gems.length;
+//        Set<String> answerSet = new HashSet<String>();
+//        Map<String, Integer> gemCounts = new HashMap<>();
+//        answerSet.addAll(List.of(gems));//외워
+//
+//
+//        int num =answerSet.size();
+//        int start =0;
+//        int min = Integer.MAX_VALUE;
+//        for(int i = 0; i < gems.length;i++){
+//            gemCounts.put(gems[i],gemCounts.getOrDefault(gems[i],0)+1);
+//            while(gemCounts.size()==num){
+//                if(i-start<min){
+//                    min=i-start;
+//                    answer[0]=start+1;
+//                    answer[1]=i+1;
+//                }
+//                gemCounts.put(gems[start], gemCounts.get(gems[start]) - 1);
+//                if (gemCounts.get(gems[start]) == 0) {
+//                    gemCounts.remove(gems[start]);
+//                }
+//                start++;
+//            }
+//
+//        }
+//
+//        return answer;
+//    }
+//}
+//class Solution {
+//    public long solution(int[] sequence) {
+//        long answer = 0;
+//        long q = 0;
+//        long p = 0;
+//
+//        for (int i = 0; i < sequence.length; i++) {
+//            if (i % 2 == 0) {
+//                q += sequence[i];
+//                p -= sequence[i];
+//            } else {
+//                q -= sequence[i];
+//                p += sequence[i];
+//            }
+//
+//            answer = Math.max(answer, Math.max(q, p));
+//            q = Math.max(q, 0);
+//            p = Math.max(p, 0);
+//        }
+//
+//        return answer;
+//    }
+//}
+
+//class Solution {
+//    int answer = 52;
+//
+//    public int solution(String begin, String target, String[] wor) {
+//        List<String> words = new ArrayList<>(Arrays.asList(wor));
+//        rere(begin, target, words, 0);
+//        if (answer == 52) { // 변경된 부분: 이전에 설정한 값과 비교
+//            return 0;
+//        }
+//        return answer;
+//    }
+//
+//    private boolean qwe(String str1, String str2) {
+//        String[] words1 = str1.split("");
+//        String[] words2 = str2.split("");
+//        int count = 0;
+//        for (int i = 0; i < words2.length; i++) {
+//            if (!words1[i].equals(words2[i])) { // 변경된 부분: 조건문 간략화
+//                count++;
+//            }
+//        }
+//        return count == 1; // 변경된 부분: 조건문 수정
+//    }
+//
+//    private void rere(String begin, String target, List<String> words, int count) { // 반환값 제거
+//        if (begin.equals(target)) { // 변경된 부분: 정답을 찾은 경우에 대한 처리 추가
+//            answer = Math.min(answer, count); // 변경된 부분: 최소값 갱신
+//            return;
+//        }
+//
+//        for (int i = 0; i < words.size(); i++) {
+//            if (qwe(begin, words.get(i))) { // 변경된 부분: 형변환 제거
+//                String nextWord = words.remove(i); // 변경된 부분: 현재 단어를 가져오고 리스트에서 제거
+//                rere(nextWord, target, words, count + 1); // 변경된 부분: 재귀 호출 시 count 증가
+//                words.add(i, nextWord); // 변경된 부분: 재귀 호출 이후에는 다시 단어를 추가해야 함
+//            }
+//        }
+//    }
+//}
+
+//class Solution {
+//    int answer =52;
+//
+//    public int  solution(String begin, String target, String[] wor) {
+//        List<String> words = new ArrayList<>(Arrays.asList(wor));
+//        rere(begin, target, words,0,0);
+//        if(answer==52){
+//            return 0;
+//        }
+//        return answer;
+//    }
+//    private boolean qwe(String str1, String str2){
+//        String[] words1 = str1.split("");
+//        String[] words2 = str2.split("");
+//        int count =0;
+//        for (int i = 0; i<words2.length;i++){
+//            if(words1[i].equals(words2[i])){
+//
+//            }else{
+//                count++;
+//            }
+//        }
+//        if(count>1){
+//            return false;
+//        }else {
+//            return true;
+//        }
+//    }
+//    private int rere(String begin, String target, List words, int count,int num) {
+//        for (int i = num; i < words.size();i++){
+//            if(begin.equals(target)){
+//                if(answer>count){
+//                    System.out.println(count);
+//                    answer=count;
+//                    break;
+//                }
+//                    break;
+//            }
+//            if(qwe(begin, (String) words.get(i))){
+//                rere(begin,target,words,count,i+1);
+//                System.out.println(words.size());
+//                System.out.println(words.get(i)+"1번");
+//                begin= (String) words.get(i);
+//                if(words.size()!=0){
+//                    words.remove(i);
+//
+//                }else{break;}
+//
+//                count++;
+//                rere(begin,target,words,count,0);
+//            }
+//        }
+//        return answer;
+//    }
+//}
 //class Solution {
 //    public int[] solution(String[] operations) {
 //        PriorityQueue<Integer> min = new PriorityQueue<>();
